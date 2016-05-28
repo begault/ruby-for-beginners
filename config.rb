@@ -6,9 +6,12 @@ set :js_dir, 'assets/javascripts'
 set :images_dir, 'images'
 set :source, 'source'
 
-page '/sitemap.xml', layout: false
-page '/solutions/*', :layout => false
-page '/solutions_2/*', :layout => false
+page 'en/sitemap.xml', layout: false
+page 'fr/sitemap.xml', layout: false
+page 'en/solutions/*', :layout => false
+page 'fr/solutions/*', :layout => false
+page 'en/solutions_2/*', :layout => false
+page 'fr/solutions_2/*', :layout => false
 
 ignore(/themes\/(?!#{data.book.theme.downcase}).*/)
 config.ignored_sitemap_matchers[:layout] = proc { |file|
@@ -19,6 +22,7 @@ activate :syntax
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true, :no_intra_emphasis => true, :autolink => true, :strikethrough => true, :tables => true
 
+activate :i18n
 set :relative_links, true
 activate :relative_assets
 activate :minify_css
